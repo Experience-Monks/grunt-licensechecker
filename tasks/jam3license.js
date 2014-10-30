@@ -11,7 +11,7 @@
 
 module.exports = function( grunt ) {
     
-    grunt.task.registerMultiTask('jam3license', 'Log stuff.', function() {
+    grunt.task.registerTask('jam3license', 'Log stuff.', function() {
 
       var o = this.options();
 
@@ -39,6 +39,8 @@ module.exports = function( grunt ) {
 
           options: {
 
+            warn: o.warn,
+            outFile: o.outFile,
             acceptable: o.acceptable  
           }
         }

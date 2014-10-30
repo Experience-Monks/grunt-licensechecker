@@ -4,7 +4,7 @@ module.exports = function( grunt ) {
 
         var o = this.options( {
 
-          outFile: 'LICENSE.md',
+          outFile: null,
           acceptable: []
         }),
         licenses = grunt.file.readJSON( '.licenses' ),
@@ -26,29 +26,40 @@ module.exports = function( grunt ) {
         }
       }
 
-      if( licensesNotOK == '' && licensesNone == '' ) {
+      // check if we should output to a file
+      if( o.outFile ) {
 
-        out += 'Everything A OK!!!';
-      } else {
+        if( licensesNotOK == '' && licensesNone == '' ) {
 
-        for( var library in nolicenses ) {
+          out += 'Everything A OK!!!';
+        } else {
 
-          licensesNone += '\n' + library + ': ' + nolicenses[ library ].licenses;
+          for( var library in nolicenses ) {
+
+            licensesNone += '\n' + library + ': ' + nolicenses[ library ].licenses;
+          }
+
+          if( licensesNotOK != '' ) {
+
+            out += titleLicensesNotOK + '\n```';
+            out += licensesNotOK + '\n```\n\n';
+          }
+
+          if( licensesNone ) {
+
+            out += titleLicensesNone + '\n```';
+            out += licensesNone + '\n```\n\n';
+          }
         }
 
-        if( licensesNotOK != '' ) {
-
-          out += titleLicensesNotOK + '\n```';
-          out += licensesNotOK + '\n```\n\n';
-        }
-
-        if( licensesNone ) {
-
-          out += titleLicensesNone + '\n```';
-          out += licensesNone + '\n```\n\n';
-        }
+        grunt.file.write( o.outFile, out );
       }
 
-      grunt.file.write( o.outFile, out );
+      // check if we should output all libraries which are not complying to licenses
+      if( licensesNotOK != '' && o.warn ) {
+
+        grunt.log.errorlns( 'The following libraries are not cool according to Jam3 terms of use:\n' +
+                            licensesNotOK );
+      }
     });
 };

@@ -30,14 +30,10 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     jam3license: {
-      default_options: {
-        options: {
-        }
-      },
-      custom_options: {
-        options: {
-          acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
-        }
+      options: {
+        warn: true,
+        outFile: null,
+        acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
       }
     },
 
