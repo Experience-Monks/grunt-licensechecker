@@ -24,14 +24,16 @@ module.exports = function( grunt ) {
           withLicense: {
 
             depth: null,
-            output: '.licenses'
+            output: '.licenses',
+            include: o.include
           },
 
           withoutLicense: {
 
             unknown: true,
             depth: null,
-            output: '.nolicenses' 
+            output: '.nolicenses',
+            include: o.include
           }
         },
 
