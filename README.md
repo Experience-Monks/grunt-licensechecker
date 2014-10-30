@@ -1,6 +1,7 @@
 # grunt-jam3license
 
-> This will test licenses which are in the list of acceptable licenses at Jam3
+> This plugin will test if licenses in your project are in a list of acceptable licenses. If it is not you can output the list of 
+unacceptable licenses to the screen as a warning and/or output to a file of your choice.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -26,61 +27,66 @@ In your project's Gruntfile, add a section named `jam3license` to the data objec
 grunt.initConfig({
   jam3license: {
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+      warn: true,
+      outFile: null,
+      acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
+    }
   },
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.warn
+Type: `Boolean`
+Default value: `false`
+
+If this is set to true then you'll receive a warning while grunt is running stating that there is a license that is not in the list of acceptable
+licenses.
+
+#### options.outFile
 Type: `String`
-Default value: `',  '`
+Default value: `null`
 
-A string value that is used to do something with whatever.
+If `outFile` is passed then a markdown formatted file will be output which shows all licenses which do not match the acceptable licenses and also lists libraries which do not have a license. If `null` is passed or this is left blank no file will be output.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.acceptable
+Type: `Array{String}`
 
-A string value that is used to do something else with whatever else.
+You must pass an array of acceptable licenses for instance `[ 'MIT', 'BSD', 'ISC' ]`.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  jam3license: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### To Screen
+In this example licenses which are are not `[ 'MIT', 'MIT/X11', 'BSD', 'ISC' ]` will be output to screen.
 
 ```js
 grunt.initConfig({
   jam3license: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+      warn: true,
+      outFile: null,
+      acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
+    }
+  }
 });
 ```
+
+#### To Markdown File
+In this example libraries which are not acceptable and libraries which do not have a license defined in the `package.json`
+are output to a file called `LICENSE.md`.
+
+```js
+grunt.initConfig({
+  jam3license: {
+    options: {
+      outFile: 'LICENSE.md',
+      acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
+    }
+  }
+});
+```
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
