@@ -1,7 +1,7 @@
 {
   "name": "grunt-licensechecker",
   "description": "This will test licenses which are in the list of acceptable licenses at Jam3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/Jam3/grunt-licensechecker",
   "author": {
     "name": "Mikko Haapoja",
