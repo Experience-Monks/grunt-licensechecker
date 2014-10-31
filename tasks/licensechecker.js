@@ -1,6 +1,6 @@
 /*
- * grunt-jam3license
- * https://github.com/Jam3/grunt-jam3license
+ * grunt-licensechecker
+ * https://github.com/Jam3/grunt-licensechecker
  *
  * Copyright (c) 2014 Mikko Haapoja
  * Licensed under the MIT license.
@@ -11,7 +11,7 @@
 
 module.exports = function( grunt ) {
     
-    grunt.task.registerTask('jam3license', 'Log stuff.', function() {
+    grunt.task.registerTask('licensechecker', 'Log stuff.', function() {
 
       var o = this.options();
 

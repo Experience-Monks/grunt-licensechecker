@@ -1,4 +1,4 @@
-# grunt-jam3license
+# grunt-licensechecker
 
 > This plugin will test if licenses in your project are in a list of acceptable licenses. If it is not you can output the list of 
 unacceptable licenses to the screen as a warning and/or output to a file of your choice.
@@ -9,23 +9,23 @@ This plugin requires Grunt `~0.4.5`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-jam3license --save-dev
+npm install grunt-licensechecker --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-jam3license');
+grunt.loadNpmTasks('grunt-licensechecker');
 ```
 
-## The "jam3license" task
+## The "licensechecker" task
 
 ### Overview
-In your project's Gruntfile, add a section named `jam3license` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `licensechecker` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  jam3license: {
+  licensechecker: {
     options: {
       warn: true,
       outFile: null,
@@ -62,7 +62,7 @@ In this example licenses which are are not `[ 'MIT', 'MIT/X11', 'BSD', 'ISC' ]` 
 
 ```js
 grunt.initConfig({
-  jam3license: {
+  licensechecker: {
     options: {
       warn: true,
       outFile: null,
@@ -78,7 +78,7 @@ are output to a file called `LICENSE.md`.
 
 ```js
 grunt.initConfig({
-  jam3license: {
+  licensechecker: {
     options: {
       outFile: 'LICENSE.md',
       acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 

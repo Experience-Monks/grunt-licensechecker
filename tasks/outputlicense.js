@@ -58,7 +58,7 @@ module.exports = function( grunt ) {
       // check if we should output all libraries which are not complying to licenses
       if( licensesNotOK != '' && o.warn ) {
 
-        grunt.log.errorlns( 'The following libraries are not cool according to Jam3 terms of use:\n' +
+        grunt.log.errorlns( 'The following libraries are not cool:\n' +
                             licensesNotOK );
       }
     });
