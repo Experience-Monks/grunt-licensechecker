@@ -55,10 +55,20 @@ Type: `Array{String}`
 
 You must pass an array of acceptable licenses for instance `[ 'MIT', 'BSD', 'ISC' ]`.
 
+
+#### options.include
+Type: `Array{String}|String`
+Default value: `'all'`
+
+The types of dependencies to include, such as: `['dependencies', 'devDependencies', 'peerDependencies']`.
+
+
 ### Usage Examples
 
 #### To Screen
 In this example licenses which are are not `[ 'MIT', 'MIT/X11', 'BSD', 'ISC' ]` will be output to screen.
+
+The license checked will only be for dependencies.
 
 ```js
 grunt.initConfig({
@@ -66,7 +76,8 @@ grunt.initConfig({
     options: {
       warn: true,
       outFile: null,
-      acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
+      acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ],
+      include: 'dependencies' 
     }
   }
 });

@@ -33,7 +33,8 @@ module.exports = function(grunt) {
       options: {
         warn: true,
         outFile: null,
-        acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ] 
+        acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ],
+        include: 'dependencies'
       }
     },
 
