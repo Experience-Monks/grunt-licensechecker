@@ -41,7 +41,7 @@ module.exports = function( grunt ) {
 
           options: {
 
-            warn: o.warn,
+            warn: o.warn || ( o.outFile === undefined ),
             outFile: o.outFile,
             acceptable: o.acceptable  
           }

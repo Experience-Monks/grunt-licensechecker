@@ -31,10 +31,10 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     licensechecker: {
       options: {
-        warn: true,
-        outFile: null,
-        acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ],
-        include: 'dependencies'
+        // warn: true,
+        // outFile: null,
+        // acceptable: [ 'MIT', 'MIT/X11', 'BSD', 'ISC' ],
+        // include: 'dependencies'
       }
     },
 
