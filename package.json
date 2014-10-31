@@ -36,6 +36,8 @@
     "grunt-license": "^0.1.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "license",
+    "check"
   ]
 }
